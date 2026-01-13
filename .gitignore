@@ -1,0 +1,114 @@
+# ==========================
+# 1. Operating System Files (Junk)
+# ==========================
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# ==========================
+# 2. Editor & IDE Settings
+# ==========================
+# Obsidian (Your specific request)
+.obsidian/
+.trash/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains (PyCharm, IntelliJ)
+.idea/
+*.iml
+
+# Vim / Emacs (If you ever use terminal editors)
+*.swp
+*.swo
+#*#
+
+# ==========================
+# 3. Python (For your solve scripts)
+# ==========================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments (Very Important to ignore)
+venv/
+env/
+.env
+.venv/
+ENV/
+
+# Distribution / Packaging
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+*.egg-info/
+
+# Jupyter Notebooks (Checkpoint files)
+.ipynb_checkpoints
+
+# ==========================
+# 4. CTF & Forensics Evidence (HUGE FILES)
+# ==========================
+# Packet Captures (The one you had issues with)
+*.pcap
+*.pcapng
+*.cap
+
+# Disk Images & Memory Dumps
+*.iso
+*.img
+*.vmem
+*.dmp
+*.vmdk
+*.ova
+
+# Database files
+*.db
+*.sqlite3
+
+# Large Archives (Optional: Comment out if you WANT to push zips)
+# It is safer to ignore them by default so you don't push a 2GB zip.
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Specific folder for heavy evidence
+# Create a folder named "evidence" or "raw" and put your big files there.
+evidence/
+raw_files/
+downloads/
+
+# ==========================
+# 5. MkDocs (Website Generator)
+# ==========================
+# The actual built website (You only push the source, not the build)
+site/
+
+# ==========================
+# 6. Sensitive Data (Security)
+# ==========================
+# Never push keys, secrets, or logs
+*.log
+.env
+secret.txt
+keys.txt
+config.py

@@ -1,0 +1,82 @@
+# Site Information
+site_name: Riad's CTF Writeups
+site_url: https://Rador-01.github.io/ctf-writeups/  
+site_description: CTF writeups focusing on Network Forensics, Web Exploitation, and OSINT
+site_author: Riad
+
+# Repository (enables edit button and GitHub link)
+repo_name: Rador-01/ctf-writeups  
+repo_url: https://github.com/Rador-01/ctf-writeups  
+
+# Theme Configuration
+theme:
+  name: material
+  palette:
+    # Dark mode
+    - scheme: slate
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    # Light mode
+    - scheme: default
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.instant      # Faster page loads
+    - navigation.tracking     # URL updates with scroll
+    - navigation.sections     # Collapsible sections
+    - navigation.expand       # Expand all sections by default
+    - navigation.top          # Back to top button
+    - search.suggest          # Search suggestions
+    - search.highlight        # Highlight search terms
+    - content.code.copy       # Copy button for code blocks
+    - content.code.annotate   # Code annotations
+  icon:
+    repo: fontawesome/brands/github
+
+# Navigation Structure
+nav:
+  - Home: index.md
+  - Writeups:
+    - UofT CTF 2026:
+      - Forensics: writeups/uoft-ctf-2026/forensics.md
+      - Web: writeups/uoft-ctf-2026/web.md
+  - About: about.md
+
+# Extensions for better Markdown support
+markdown_extensions:
+  - pymdownx.highlight:        # Syntax highlighting
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite      # Inline code highlighting
+  - pymdownx.snippets          # Include external files
+  - pymdownx.superfences       # Better code fences
+  - pymdownx.details           # Collapsible sections
+  - pymdownx.tabbed:           # Tabbed content
+      alternate_style: true
+  - admonition                 # Callout boxes (notes, warnings, etc.)
+  - tables                     # Tables support
+  - toc:                       # Table of contents
+      permalink: true
+
+# Extra CSS/JS (optional, for customization)
+# extra_css:
+#   - stylesheets/extra.css
+
+# Footer
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/YOUR_USERNAME  # Change YOUR_USERNAME
+    # Add more social links as needed
+    # - icon: fontawesome/brands/twitter
+    #   link: https://twitter.com/YOUR_HANDLE
+
+# Copyright
+copyright: Copyright &copy; 2026 Riad
