@@ -6,25 +6,34 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Configure Git Credentials
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
       
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+      - run: pip install mkdocs-material
       
-      - name: Deploy to GitHub Pages
-        run: mkdocs gh-deploy --force
+      - run: mkdocs build
+      
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
