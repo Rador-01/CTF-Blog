@@ -12,35 +12,48 @@ repo_url: https://github.com/Rador-01/CTF-Blog
 theme:
   name: material
   palette:
-    # Dark mode
-    - scheme: slate
-      primary: black
-      accent: orange
+    # Dark mode (default)
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: amber
       toggle:
-        icon: material/weather-night
+        icon: material/toggle-switch
         name: Switch to light mode
     # Light mode
-    - scheme: default
-      primary: white
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: cyan
       accent: deep orange
       toggle:
-        icon: material/weather-sunny
+        icon: material/toggle-switch-off-outline
         name: Switch to dark mode
   features:
     - navigation.instant
+    - navigation.instant.prefetch
     - navigation.tracking
-    - navigation.tabs           # Top navigation tabs
+    - navigation.path
+    - navigation.indexes
     - navigation.top
     - search.suggest
     - search.highlight
+    - search.share
     - content.code.copy
     - content.code.annotate
+    - content.tabs.link
+    - header.autohide
+    - announce.dismiss
   font:
-    text: Inter
-    code: Fira Code
+    text: JetBrains Mono
+    code: JetBrains Mono
   icon:
-    repo: fontawesome/brands/github-alt
-    logo: material/shield-lock
+    repo: fontawesome/brands/git-alt
+    logo: material/bug
+    admonition:
+      note: material/pencil-circle
+      tip: material/fire
+      warning: material/alert-octagon
+      danger: material/skull-crossbones
 
 # Navigation Structure
 nav:
@@ -56,22 +69,44 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
+      auto_title: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.details
   - pymdownx.tabbed:
       alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.mark
+  - pymdownx.critic
+  - pymdownx.keys
   - admonition
   - tables
+  - attr_list
+  - md_in_html
+  - def_list
+  - footnotes
   - toc:
-      permalink: true
+      permalink: "🔗"
+      toc_depth: 3
 
-# Footer
+# Additional CSS
+extra_css:
+  - stylesheets/extra.css
+
+# Footer & Social
 extra:
+  generator: false
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/Rador-01
+      name: GitHub
 
 # Copyright
 copyright: Copyright &copy; 2026 RiadBenbrahim

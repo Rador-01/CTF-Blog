@@ -1,0 +1,100 @@
+/* Custom Theme Overrides */
+
+/* Root variables for dark mode */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0d1117;
+  --md-default-fg-color: #c9d1d9;
+  --md-code-bg-color: #161b22;
+  --md-code-fg-color: #79c0ff;
+}
+
+/* Glowing effect on links */
+.md-content a:not(.md-button) {
+  text-decoration: none;
+  border-bottom: 1px dashed;
+  transition: all 0.2s ease;
+}
+
+.md-content a:not(.md-button):hover {
+  border-bottom: 1px solid;
+  text-shadow: 0 0 8px currentColor;
+}
+
+/* Code blocks styling */
+.highlight code {
+  border-radius: 8px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--md-primary-fg-color);
+  border-radius: 4px;
+}
+
+/* Header styling */
+.md-header {
+  backdrop-filter: blur(10px);
+  background-color: rgba(13, 17, 23, 0.8) !important;
+}
+
+[data-md-color-scheme="default"] .md-header {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Navigation hover effects */
+.md-nav__link:hover {
+  transform: translateX(4px);
+  transition: transform 0.2s ease;
+}
+
+/* Admonition styling */
+.admonition {
+  border-radius: 8px;
+  border-left-width: 4px;
+}
+
+/* Footer styling */
+.md-footer {
+  border-top: 1px solid var(--md-primary-fg-color);
+}
+
+/* Selection color */
+::selection {
+  background: var(--md-accent-fg-color);
+  color: var(--md-default-bg-color);
+}
+
+/* Inline code */
+code:not([class*="language-"]) {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* Table styling */
+.md-typeset table:not([class]) {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Search bar */
+.md-search__input {
+  border-radius: 20px;
+}
+
+/* Cards/content blocks hover */
+.md-typeset .admonition:hover,
+.md-typeset details:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
