@@ -8,7 +8,7 @@ I focus mainly on **Network Forensics**, **Web Exploitation**, and **OSINT** cha
 
 ### UofT CTF 2026
 
-- [Forensics](writeups/uoft-ctf-2026/forensics.md) — Network analysis, PCAP deep dives, and memory forensics
+- [Forensics](writeups/UofTCTF2026/WriteUp_Team K&K Network Forensics Challenge.md) — Network analysis, PCAP deep dives, and memory forensics
 
 ---
 
