@@ -1,12 +1,12 @@
 # Site Information
 site_name: Riad's CTF Writeups
-site_url: https://Rador-01.github.io/ctf-writeups/  
+site_url: https://rador-01.github.io/CTF-Blog/
 site_description: CTF writeups focusing on Network Forensics, Web Exploitation, and OSINT
 site_author: Riad
 
-# Repository (enables edit button and GitHub link)
-repo_name: Rador-01/ctf-writeups  
-repo_url: https://github.com/Rador-01/ctf-writeups  
+# Repository
+repo_name: Rador-01/CTF-Blog
+repo_url: https://github.com/Rador-01/CTF-Blog
 
 # Theme Configuration
 theme:
@@ -14,69 +14,64 @@ theme:
   palette:
     # Dark mode
     - scheme: slate
-      primary: deep purple
-      accent: purple
+      primary: black
+      accent: orange
       toggle:
-        icon: material/brightness-4
+        icon: material/weather-night
         name: Switch to light mode
     # Light mode
     - scheme: default
-      primary: deep purple
-      accent: purple
+      primary: white
+      accent: deep orange
       toggle:
-        icon: material/brightness-7
+        icon: material/weather-sunny
         name: Switch to dark mode
   features:
-    - navigation.instant      # Faster page loads
-    - navigation.tracking     # URL updates with scroll
-    - navigation.sections     # Collapsible sections
-    - navigation.expand       # Expand all sections by default
-    - navigation.top          # Back to top button
-    - search.suggest          # Search suggestions
-    - search.highlight        # Highlight search terms
-    - content.code.copy       # Copy button for code blocks
-    - content.code.annotate   # Code annotations
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs           # Top navigation tabs
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+  font:
+    text: Inter
+    code: Fira Code
   icon:
-    repo: fontawesome/brands/github
+    repo: fontawesome/brands/github-alt
+    logo: material/shield-lock
 
 # Navigation Structure
 nav:
   - Home: index.md
   - Writeups:
     - UofT CTF 2026:
-      - Forensics: writeups/uoft-ctf-2026/forensics.md
-      - Web: writeups/uoft-ctf-2026/web.md
+      - Forensics: writeups/UofTCTF2026/WriteUp_Team K&K Network Forensics Challenge.md
   - About: about.md
 
-# Extensions for better Markdown support
+# Extensions
 markdown_extensions:
-  - pymdownx.highlight:        # Syntax highlighting
+  - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
-  - pymdownx.inlinehilite      # Inline code highlighting
-  - pymdownx.snippets          # Include external files
-  - pymdownx.superfences       # Better code fences
-  - pymdownx.details           # Collapsible sections
-  - pymdownx.tabbed:           # Tabbed content
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tabbed:
       alternate_style: true
-  - admonition                 # Callout boxes (notes, warnings, etc.)
-  - tables                     # Tables support
-  - toc:                       # Table of contents
+  - admonition
+  - tables
+  - toc:
       permalink: true
-
-# Extra CSS/JS (optional, for customization)
-# extra_css:
-#   - stylesheets/extra.css
 
 # Footer
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/YOUR_USERNAME  # Change YOUR_USERNAME
-    # Add more social links as needed
-    # - icon: fontawesome/brands/twitter
-    #   link: https://twitter.com/YOUR_HANDLE
+      link: https://github.com/Rador-01
 
 # Copyright
 copyright: Copyright &copy; 2026 Riad
