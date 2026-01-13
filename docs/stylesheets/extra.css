@@ -1,12 +1,55 @@
-/* Custom Theme Overrides */
-
-/* Root variables for dark mode */
+/* ================================
+   DARK MODE STYLES
+   ================================ */
 [data-md-color-scheme="slate"] {
   --md-default-bg-color: #0d1117;
   --md-default-fg-color: #c9d1d9;
   --md-code-bg-color: #161b22;
   --md-code-fg-color: #79c0ff;
 }
+
+[data-md-color-scheme="slate"] .md-header {
+  background-color: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+/* ================================
+   LIGHT MODE STYLES
+   ================================ */
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: #ffffff;
+  --md-default-fg-color: #1a1a1a;
+  --md-code-bg-color: #f5f5f5;
+  --md-code-fg-color: #d63384;
+}
+
+[data-md-color-scheme="default"] .md-header {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Light mode header text visibility */
+[data-md-color-scheme="default"] .md-header__title,
+[data-md-color-scheme="default"] .md-header-nav__topic,
+[data-md-color-scheme="default"] .md-header__button,
+[data-md-color-scheme="default"] .md-header__source,
+[data-md-color-scheme="default"] .md-search__input {
+  color: #1a1a1a;
+}
+
+[data-md-color-scheme="default"] .md-header__button svg,
+[data-md-color-scheme="default"] .md-search__icon svg {
+  fill: #1a1a1a;
+}
+
+[data-md-color-scheme="default"] .md-tabs {
+  background-color: var(--md-primary-fg-color);
+}
+
+/* ================================
+   SHARED STYLES (Both modes)
+   ================================ */
 
 /* Glowing effect on links */
 .md-content a:not(.md-button) {
@@ -38,16 +81,6 @@
 ::-webkit-scrollbar-thumb {
   background: var(--md-primary-fg-color);
   border-radius: 4px;
-}
-
-/* Header styling */
-.md-header {
-  backdrop-filter: blur(10px);
-  background-color: rgba(13, 17, 23, 0.8) !important;
-}
-
-[data-md-color-scheme="default"] .md-header {
-  background-color: rgba(255, 255, 255, 0.9) !important;
 }
 
 /* Navigation hover effects */
@@ -95,6 +128,23 @@ code:not([class*="language-"]) {
 .md-typeset .admonition:hover,
 .md-typeset details:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
+}
+
+/* ================================
+   IMAGE OPTIMIZATION
+   ================================ */
+.md-content img {
+  border-radius: 8px;
+}
+
+/* Lazy load images with fade-in */
+.md-content img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.md-content img[loading="lazy"].loaded {
+  opacity: 1;
 }

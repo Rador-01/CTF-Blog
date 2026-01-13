@@ -17,18 +17,18 @@ We started by opening the `.pcapng` file in Wireshark. To filter through the n
 
 This provided a high-level view of all protocols present. A specific line stood out immediately: **MIME Multipart Media Encapsulation** which is a method used to combine multiple types of data (text, images, audio, etc.) into a single message for transmission over the internet, most commonly in email. It accounted for nearly **22%** of the total byte count, despite being involved in only a few packets. This disproportionate size is a strong indicator of a file transfer. Specifically, files being sent via HTTP POST requests.
 
-![Wireshark Protocol Hierarchy](../../images/1.png)
+![Wireshark Protocol Hierarchy](../../images/1.png){ loading=lazy }
 #### Step 2: Locating the Exfiltration
 
 Instead of manually searching for the suspicious traffic, we used the Protocol Hierarchy window to filter it directly. 
 
 We right-clicked on the **MIME Multipart Media Encapsulation** row and selected **Apply as Filter > Selected**. This immediately isolated the specific packets responsible for the heavy data transfer.
 
-![Protocol Hierarchy Filter](../../images/9.png)
+![Protocol Hierarchy Filter](../../images/9.png){ loading=lazy }
 
 This filter revealed a series of **HTTP POST** requests sent to the IP address `34.134.77.90`. By looking at the Info column, we saw they were targeting the URI `/upload`, confirming that data was being actively exfiltrated to an external server.
 
-![Filtered Packet List](../../images/2.png)
+![Filtered Packet List](../../images/2.png){ loading=lazy }
 
 #### Step 3: Extracting Evidence
 
@@ -44,7 +44,7 @@ This opened a list of all files transferred over HTTP. Two items were critical:
 2. **`upload`**: Several entries named "upload", mostly with the MIME type `multipart/form-data`. One file was significantly large (**1475 kB**), and others were smaller (e.g., **118 kB**, **382 kB**).
     
 
-![Export Objects List](../../images/3.png)
+![Export Objects List](../../images/3.png){ loading=lazy }
 
 We saved the script and all instances of the "upload" files to our local machine for analysis.
 
@@ -64,7 +64,7 @@ def xor_file(data, key):
 
 The malware scans the victim's desktop for files (`.docx`, `.png`, `.jpg`), encrypts them using **XOR** with the key `"G0G0Squ1d3Ncrypt10n"`, converts the encrypted bytes to a hex string, and uploads them.
 
-![JdR1Pr1.py code](../../images/4.png)
+![JdR1Pr1.py code](../../images/4.png){ loading=lazy }
 
 #### Step 5: Decryption & Solving
 
@@ -79,9 +79,9 @@ To retrieve the original files, we wrote a Python solver script to reverse the p
 4. XOR the bytes with the key to decrypt.
 
 
-![upload file](../../images/7.png)
+![upload file](../../images/7.png){ loading=lazy }
 
-![cleaned file saved under the name: encrypted.txt](../../images/8.png)
+![cleaned file saved under the name: encrypted.txt](../../images/8.png){ loading=lazy }
 
 **The Solver Script (`solve.py`):**
 
@@ -121,8 +121,8 @@ print("Decryption complete.")
 #### Step 6: The Flag
 
 We initially decrypted the largest file, which turned out to be the victim's desktop background (a distraction). 
-![Distraction](../../images/6.png)
+![Distraction](../../images/6.png){ loading=lazy }
 
 We then targeted the smaller **118 kB** upload file, suspecting it might be the flag. Still it wasn't, so we went through some others by running the script on these files until found a valid PNG image containing the flag.
 
-![The final decrypted flag.png image](../../images/5.png)
+![The final decrypted flag.png image](../../images/5.png){ loading=lazy }
