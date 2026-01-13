@@ -1,7 +1,13 @@
 
+### Challenge Name
+
+Team K&K Network Forensics Challenge
+
+Author: UofTCTF 2026
+
 ### Description
 
-This challenge involves analyzing a `.pcapng` packet capture file to investigate suspicious network activity. The scenario describes a team fearing data theft by a competitor. The goal is to analyze the network logs, identify the exfiltrated data, and uncover the flag hidden within the stolen files.
+This challenge involves analyzing a `.pcapng` packet capture file to investigate suspicious network activity. The scenario describes a team fearing data theft by a competitor. The goal is to analyze the network logs, identify the exfiltrated data, and uncover the flag hidden within the stolen files.
 
 ### The Idea
 
