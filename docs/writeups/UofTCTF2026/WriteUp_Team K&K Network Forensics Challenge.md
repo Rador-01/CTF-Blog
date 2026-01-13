@@ -1,7 +1,7 @@
 
 ### Challenge Name
 
-Team K&K Network Forensics Challenge
+Baby Exfil
 
 Author: UofTCTF 2026
 
