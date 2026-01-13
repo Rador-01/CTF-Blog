@@ -12,22 +12,9 @@ repo_url: https://github.com/Rador-01/CTF-Blog
 theme:
   name: material
   palette:
-    # Dark mode (default)
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: teal
-      accent: amber
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode
-    # Light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: cyan
-      accent: deep orange
-      toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
+    scheme: slate
+    primary: teal
+    accent: amber
   features:
     - navigation.instant
     - navigation.instant.prefetch
