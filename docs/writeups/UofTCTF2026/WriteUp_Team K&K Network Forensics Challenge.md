@@ -1,4 +1,3 @@
-
 ### Challenge Name
 
 Baby Exfil
@@ -24,9 +23,10 @@ We started by opening the `.pcapng` file in Wireshark. To filter through the n
 This provided a high-level view of all protocols present. A specific line stood out immediately: **MIME Multipart Media Encapsulation** which is a method used to combine multiple types of data (text, images, audio, etc.) into a single message for transmission over the internet, most commonly in email. It accounted for nearly **22%** of the total byte count, despite being involved in only a few packets. This disproportionate size is a strong indicator of a file transfer. Specifically, files being sent via HTTP POST requests.
 
 ![Wireshark Protocol Hierarchy](../../images/1.png){ loading=lazy }
+
 #### Step 2: Locating the Exfiltration
 
-Instead of manually searching for the suspicious traffic, we used the Protocol Hierarchy window to filter it directly. 
+Instead of manually searching for the suspicious traffic, we used the Protocol Hierarchy window to filter it directly.
 
 We right-clicked on the **MIME Multipart Media Encapsulation** row and selected **Apply as Filter > Selected**. This immediately isolated the specific packets responsible for the heavy data transfer.
 
@@ -41,14 +41,12 @@ This filter revealed a series of **HTTP POST** requests sent to the IP address `
 To retrieve the actual data being sent, we used Wireshark's built-in file extraction tool:
 
 - Navigate to: `File > Export Objects > HTTP`
-    
 
 This opened a list of all files transferred over HTTP. Two items were critical:
 
 1. **`JdR1Pr1.py`**: A Python script (likely the malware itself).
-    
+
 2. **`upload`**: Several entries named "upload", mostly with the MIME type `multipart/form-data`. One file was significantly large (**1475 kB**), and others were smaller (e.g., **118 kB**, **382 kB**).
-    
 
 ![Export Objects List](../../images/3.png){ loading=lazy }
 
@@ -77,13 +75,12 @@ The malware scans the victim's desktop for files (`.docx`, `.png`, `.jpg`), en
 To retrieve the original files, we wrote a Python solver script to reverse the process. The script needed to:
 
 1. Read the `upload` file.
-    
-2. Clean the file (remove HTTP headers and newlines using Regex) to isolate the hex payload.
-    
-3. Convert the hex back to bytes.
-    
-4. XOR the bytes with the key to decrypt.
 
+2. Clean the file (remove HTTP headers and newlines using Regex) to isolate the hex payload.
+
+3. Convert the hex back to bytes.
+
+4. XOR the bytes with the key to decrypt.
 
 ![upload file](../../images/7.png){ loading=lazy }
 
@@ -126,7 +123,7 @@ print("Decryption complete.")
 
 #### Step 6: The Flag
 
-We initially decrypted the largest file, which turned out to be the victim's desktop background (a distraction). 
+We initially decrypted the largest file, which turned out to be the victim's desktop background (a distraction).
 ![Distraction](../../images/6.png){ loading=lazy }
 
 We then targeted the smaller **118 kB** upload file, suspecting it might be the flag. Still it wasn't, so we went through some others by running the script on these files until found a valid PNG image containing the flag.
