@@ -3,6 +3,7 @@
 Baby Exfil
 
 Author: UofTCTF 2026
+Flag: uoftctf{b4by_w1r3sh4rk_an4lys1s}
 
 ### Description
 
